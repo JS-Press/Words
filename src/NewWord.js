@@ -3,7 +3,7 @@ import React from 'react';
 function NewWord(){
 
     return (
-        <h1>Add A New Word</h1>
+        <h4>Add A New Word</h4>
     )
 
 }
