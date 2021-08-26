@@ -8,12 +8,12 @@ function Navbar(){
         <NavLink to="/like" activeStyle={{
             fontWeight: "bold",
             color: "red"
-        }}> Words I Like </NavLink>
+        }}> That I Like </NavLink>
         <br></br>
         <NavLink to="/dontLike"  activeStyle={{
             fontWeight: "bold",
             color: "red"
-        }}> Words I Don't Like </NavLink>
+        }}> That I Don't Like </NavLink>
         </>
     )
 

@@ -1,9 +1,15 @@
 import React from 'react';
+import { useParams } from 'react-router-dom'
 
-function NewWord(){
+function NewWord( { newWord, handleChangeWord, handleAddWord }){
+
+    let { feeling } = useParams()
 
     return (
-        <h4>Add A New Word</h4>
+        <>
+        <input type ='text' placeholder ='my new word' value = {newWord} onChange = {handleChangeWord} />
+        <button onClick = {() => handleAddWord(feeling)} >Add To List</button>
+        </>
     )
 
 }

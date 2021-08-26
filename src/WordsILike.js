@@ -16,7 +16,7 @@ function WordsILike(){
 
     return (
         <>
-        <h2>I Like These Words:</h2>
+        {/* <h2>I Like These Words:</h2> */}
         <ul> {likedWordsList}</ul>
         </>
     )
