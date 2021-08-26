@@ -8,7 +8,8 @@ function NewWord( { newWord, handleChangeWord, handleAddWord }){
     return (
         <>
         <input type ='text' placeholder ='my new word' value = {newWord} onChange = {handleChangeWord} />
-        <button onClick = {() => handleAddWord(feeling)} >Add To List</button>
+        <button onClick = {() => handleAddWord('like')} >I Like This Word</button>
+        <button onClick = {() => handleAddWord('dislike')} >I Don't Like This Word</button>
         </>
     )
 

@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function WordsIDontLike(){
+function WordsIDontLike( { dislikedWords }){
 
-    const [dislikedWords, setDislikedWords] = useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:3000/dislike')
-        .then(r => r.json())
-        .then(d => setDislikedWords(d))
-    },[])
 
     const dislikedWordsList = dislikedWords.map(word => {
         return <li key = {word} >{word}</li>

@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-function WordsILike(){
+function WordsILike( { likedWords } ){
 
-    const [likedWords, setLikedWords] = useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:3000/like')
-        .then(r => r.json())
-        .then(d => setLikedWords(d))
-    },[])
+    
 
     const likedWordsList = likedWords.map(word => {
         return <li key = {word} >{word}</li>
