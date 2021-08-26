@@ -1,9 +1,20 @@
 import React from 'react';
+import { NavLink } from "react-router-dom"
 
 function Navbar(){
 
     return (
-        <h1>Navbigate!</h1>
+        <>
+        <NavLink to="/like" activeStyle={{
+            fontWeight: "bold",
+            color: "red"
+        }}> Words I Like </NavLink>
+        <br></br>
+        <NavLink to="/dontLike"  activeStyle={{
+            fontWeight: "bold",
+            color: "red"
+        }}> Words I Don't Like </NavLink>
+        </>
     )
 
 }

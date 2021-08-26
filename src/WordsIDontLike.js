@@ -16,7 +16,7 @@ function WordsIDontLike(){
 
     return (
         <>
-        <h2>I Dislike These Words:</h2>
+        <h2>I Don't Like These Words:</h2>
         <ul> {dislikedWordsList}</ul>
         </>
     )
