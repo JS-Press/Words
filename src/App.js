@@ -13,6 +13,11 @@ function App() {
   const [dislikedWords, setDislikedWords] = useState([])
   const [newWord, setNewWord] = useState('')
 
+  const headerStuff = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }
+
 
 // Setting up initial liked / disliked word lists
     useEffect(() => {
@@ -28,17 +33,42 @@ function App() {
 
 // Handling new word
   function handleAddWord(feeling){
-    console.log(newWord, `added to ${ feeling }`)
-    setNewWord('')
+
+    // TRYIG TO CHOOSE A LIST OF CURRENT WORDS BASED ON FEELING
+    // let list = ''
+    // if(feeling === 'like'){ let list = likedWords}
+    // else if(feeling === 'dislike'){ let list = dislikedWords}
+          //{feeling : [...( feeling === 'dislike' ? dislikedWords : likedWords ), newWord]}
+   
+
+    console.log(newWord, `added to ${ feeling }`, `with ${feeling === 'dislike' ? 'dislikedWords' : 'likedWords' }`)
+    console.log('patching', JSON.stringify({[feeling] : [...( feeling === 'dislike' ? dislikedWords : likedWords ), newWord]}))
+
+    fetch(`http://localhost:3000/`, {
+      method:'PATCH',
+      headers: headerStuff,
+      body: JSON.stringify({[feeling] : [...( feeling === 'dislike' ? dislikedWords : likedWords ), newWord]})
+  })
+    .then(r => r.json())
+    .then(data => console.log(data))
+    .catch(er => console.log(`Nope BECAUSE:${er}`))
+    // setNewWord('')
+    
   }
+
   function handleChangeWord(e){
     setNewWord(e.target.value)
   }
 
   return (
     <>
-    <h1>Words</h1>
+    <h1>words</h1>
     <Navbar />
+      <br></br>
+      <br></br>
+      <NewWord newWord = {newWord} handleChangeWord = {handleChangeWord} handleAddWord = {handleAddWord} />
+      <br></br>
+      <br></br>
     <Switch>
       {/* <Route exact path='/' >
         <WordsILike likedWords = {likedWords} />
@@ -46,13 +76,10 @@ function App() {
       <Route path = "/like" >
         <WordsILike likedWords = {likedWords} />
       </Route>
-      <Route path = "/dontLike" >
+      <Route path = "/dont-like" >
         <WordsIDontLike dislikedWords = {dislikedWords} />
       </Route>
     </Switch>
-    <br></br>
-    <br></br>
-    <NewWord newWord = {newWord} handleChangeWord = {handleChangeWord} handleAddWord = {handleAddWord} />
     </>
   );
 }

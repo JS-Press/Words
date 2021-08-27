@@ -1,16 +1,15 @@
 import React from 'react';
+import WordCard from './WordCard'
 
 function WordsIDontLike( { dislikedWords }){
 
 
-    const dislikedWordsList = dislikedWords.map(word => {
-        return <li key = {word} >{word}</li>
-    })
+    const dislikedWordsList = dislikedWords.map(word => <WordCard word = {word} key = {word} /> )
 
     return (
         <>
         {/* <h2>I Don't Like These Words:</h2> */}
-        <ul> {dislikedWordsList}</ul>
+        {dislikedWordsList}
         </>
     )
 }

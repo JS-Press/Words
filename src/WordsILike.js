@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import WordCard from './WordCard'
 
 function WordsILike( { likedWords } ){
 
-    
-
-    const likedWordsList = likedWords.map(word => {
-        return <li key = {word} >{word}</li>
-    })
+    const likedWordsList = likedWords.map(word => <WordCard key = {word} word = {word} /> )
 
     return (
         <>
         {/* <h2>I Like These Words:</h2> */}
-        <ul> {likedWordsList}</ul>
+        {likedWordsList}
         </>
     )
 
