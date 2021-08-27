@@ -8,7 +8,7 @@ function WordCard({ word }){
 
     useEffect( () => {
     
-        fetch(`http://api.giphy.com/v1/gifs/random?tag=${word}&api_key=nDPzADnKsqOAxpZ6yZcvFq0NUWv5oVVY&limit=1`)
+        fetch(`http://api.giphy.com/v1/stickers/random?tag=${word}&api_key=nDPzADnKsqOAxpZ6yZcvFq0NUWv5oVVY&limit=1`)
         .then(r => r.json())
         .then(obj => {
             // console.log(word, obj.data)

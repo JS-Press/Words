@@ -5,12 +5,14 @@ import Navbar from "./Navbar"
 import NewWord from "./NewWord"
 import WordsILike from "./WordsILike"
 import WordsIDontLike from "./WordsIDontLike"
+import WordsInbetween from "./WordsInbetween"
 // import DefineWord from "./DefineWord"
 
 function App() {
 
   const [likedWords, setLikedWords] = useState([])
   const [dislikedWords, setDislikedWords] = useState([])
+  const [inbetweenWords, setInbetweenWords] = useState([])
   const [newWord, setNewWord] = useState('')
 
   const headerStuff = {
@@ -25,11 +27,19 @@ function App() {
         .then(r => r.json())
         .then(d => setDislikedWords(d))
     },[])
+
+    useEffect(() => {
+      fetch('http://localhost:3000/inbetween')
+      .then(r => r.json())
+      .then(d => setInbetweenWords(d))
+  },[])
+
     useEffect(() => {
         fetch('http://localhost:3000/like')
         .then(r => r.json())
         .then(d => setLikedWords(d))
     },[])
+    
 
 // Handling new word
   function handleAddWord(feeling){
@@ -75,6 +85,9 @@ function App() {
       </Route> */}
       <Route path = "/like" >
         <WordsILike likedWords = {likedWords} />
+      </Route>
+      <Route path = "/inbetween" >
+        <WordsInbetween inbetweenWords = {inbetweenWords} />
       </Route>
       <Route path = "/dont-like" >
         <WordsIDontLike dislikedWords = {dislikedWords} />
