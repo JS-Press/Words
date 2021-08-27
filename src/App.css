@@ -4,8 +4,14 @@
   
 }
 
-.Navbar {
+.nav {
   display : inline;
+}
+
+a {
+  display : inline;
+  font-size : 1em;
+  color : grey;
 }
 
 /* 
