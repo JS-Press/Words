@@ -25,8 +25,12 @@ function WordCard({ word }){
     return(
 <>
 <br></br>
+<br></br>
+<br></br>
 <p>{word}</p>
 {imgUrl !== 'init' ? <img src= {imgUrl.images.fixed_width.url} alt = {imgUrl.title} /> : null}
+<br></br>
+<br></br>
 <br></br>
 </>
     )

@@ -4,6 +4,10 @@
   
 }
 
+.Navbar {
+  display : inline;
+}
+
 /* 
 .App-logo {
   height: 40vmin;
