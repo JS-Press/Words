@@ -16,7 +16,6 @@ function App() {
   const [newWord, setNewWord] = useState('')
 
   const headerStuff = {
-    'Accept': 'application/json',
     'Content-Type': 'application/json'
   }
 
@@ -58,41 +57,39 @@ function App() {
 
 // Handling new word addition
   function handleAddWord(feeling){
+    
+    // POST fetching server to add word
+    console.log(newWord, `added to ${ feeling }`)
+    console.log('posting', JSON.stringify({"theWord" : newWord}))
 
-    // const [feelingList, setList] = useState([])
-    // let feelingList = []
+    fetch(`http://localhost:3000/${feeling}` 
+    ,{ method:'POST',
+       headers: headerStuff,
+       body: JSON.stringify({"theWord" : newWord})
+    }
+    )
+    .then(r => r.json())
+    .then(data => console.log(data))
+    .catch(er => console.log(`Nope BECAUSE:${er}`))
 
-    // TRYIG TO CHOOSE A LIST OF CURRENT WORDS BASED ON FEELING
-    // let list = ''
-    // if(feeling === 'like'){ let list = likedWords}
-    // else if(feeling === 'dislike'){ let list = dislikedWords}
-          //{feeling : [...( feeling === 'dislike' ? dislikedWords : likedWords ), newWord]}
+    //reseting input
+    setNewWord('')
 
-          // const feelingList = if(feeling === 'like'){() => [...likedWords]}else if(feeling === 'dislike'){() => [...dislikedWords]}else{() => [...inbetweenWords]} }
-          // }else if(feeling === 'inbetween'){
-          //   let feelingList = inbetweenWords
-          // }else if(feeling === 'dislike'){
-          //   let feelingList = dislikedWords
-          // }
+    //updating rendered words
+    const oldList = eval(`${feeling}Words`)
+    const newList = [...oldList, {"theWord" : newWord}]
+    switch(oldList){
+      case (likeWords): setLikedWords(newList);
+      break;
+      case (inbetweenWords): setInbetweenWords(newList);
+      break;
+      case (dislikeWords): setDislikedWords(newList);
+      break;
+    }
 
-    const feelingList = eval(`${feeling}Words`)
 
-    console.log(feelingList)
-
-    console.log(newWord, `added to ${ feeling }`, `with ${feeling === 'dislike' ? 'dislikedWords' : 'likedWords' }`)
-    console.log('patching', JSON.stringify([...feelingList, {"theWord" : newWord}]))
-
-    // fetch(`http://localhost:3000/${feeling}` 
-    // ,{ method:'PATCH',
-    //   headers: headerStuff,
-    //   body: JSON.stringify({"theWord" : newWord})}
-    // )
-    // .then(r => r.json())
-    // .then(data => console.log(data))
-    // .catch(er => console.log(`Nope BECAUSE:${er}`))
-    // setNewWord('')
-      fetch(`http://localhost:3000/${feeling}`, {  method: "PATCH",  headers: {    "Content-type": "application/json"  },  body: JSON.stringify([...feelingList, {"theWord" : newWord}])}) .then(response => {    console.log(response.status);     return response.json();  })  .then(data => console.log("worked",data));
-  }
+     
+    }
 
   function handleChangeWord(e){
     setNewWord(e.target.value)
