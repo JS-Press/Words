@@ -2,9 +2,9 @@ import React from 'react';
 import WordCard from './WordCard'
 import { Redirect } from "react-router-dom"
 
-function WordsILike( { likedWords } ){
+function WordsILike( { likedWords, handleDelete, feeling } ){
 
-    const likedWordsList = likedWords.map(word => <WordCard key = {word} word = {word} /> )
+    const likedWordsList = likedWords.map(word => <WordCard key = {word.theWord} word = {word.theWord} handleDelete = {handleDelete} feeling = {feeling} /> )
 
     return (
         <>

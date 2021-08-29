@@ -1,17 +1,19 @@
 * {
   text-align: center;
   padding:.2em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   
-}
-
-.nav {
-  display : inline;
 }
 
 a {
   display : inline;
   font-size : 1em;
   color : grey;
+}
+
+p {
+  display : inline;
+  padding-left: 6em;
 }
 
 /* 

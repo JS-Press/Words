@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 
-function WordCard({ word }){
+function WordCard({ word, handleDelete, feeling }){
 
     const [imgUrl, setImgURL] = useState('init')
     // const fetchURL = `http://api.giphy.com/v1/gifs/search?q=${word}&api_key=nDPzADnKsqOAxpZ6yZcvFq0NUWv5oVVY&limit=1`
@@ -27,7 +27,8 @@ function WordCard({ word }){
 <br></br>
 <br></br>
 <br></br>
-<p>{word}</p>
+<p>{word}</p><p onClick={() => handleDelete(word, feeling)}>❌</p>
+<br></br>
 {imgUrl !== 'init' ? <img src= {imgUrl.images.fixed_width.url} alt = {imgUrl.title} /> : null}
 <br></br>
 <br></br>

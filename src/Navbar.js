@@ -15,7 +15,7 @@ function Navbar(){
             fontWeight: "bold", fontSize: "large",
             color: "orange"
         }}> I'm inbetween about </NavLink>
-        <NavLink to="/dont-like"  className = 'nav' activeStyle={{
+        <NavLink to="/dislike"  className = 'nav' activeStyle={{
             fontWeight: "bold", fontSize: "large",
             color: "red"
         }}> I don't like </NavLink>

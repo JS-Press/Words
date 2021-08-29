@@ -2,10 +2,10 @@ import React from 'react';
 import WordCard from './WordCard'
 import { Redirect } from "react-router-dom"
 
-function WordsInbetween( { inbetweenWords }){
+function WordsInbetween( { inbetweenWords, handleDelete, feeling }){
 
 
-    const inbetweenWordsList = inbetweenWords.map(word => <WordCard word = {word} key = {word} /> )
+    const inbetweenWordsList = inbetweenWords.map(word => <WordCard word = {word.theWord} key = {word.theWord} handleDelete = {handleDelete} feeling = {feeling} /> )
 
     return (
         <>
