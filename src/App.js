@@ -108,13 +108,13 @@ function App() {
         <WordsILike likedWords = {likedWords} />
       </Route> */}
       <Route path = "/like" >
-        <WordsILike likedWords = {likeWords} handleDelete = {handleDelete} feeling = {'like'} />
+        <WordsILike likedWords = {likeWords} handleDelete = {handleDelete} feeling = {'like'} className = "test" />
       </Route>
       <Route path = "/inbetween" >
-        <WordsInbetween inbetweenWords = {inbetweenWords} handleDelete = {handleDelete} feeling = {'inbetween'} />
+        <WordsInbetween inbetweenWords = {inbetweenWords} handleDelete = {handleDelete} feeling = {'inbetween'}  className = "test" />
       </Route>
       <Route path = "/dislike" >
-        <WordsIDontLike dislikedWords = {dislikeWords} handleDelete = {handleDelete} feeling = {'dislike'} />
+        <WordsIDontLike dislikedWords = {dislikeWords} handleDelete = {handleDelete} feeling = {'dislike'}  className = "test" />
       </Route>
     </Switch>
     </>
