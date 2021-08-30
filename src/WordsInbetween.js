@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom"
 function WordsInbetween( { inbetweenWords, handleDelete, feeling }){
 
 
-    const inbetweenWordsList = inbetweenWords.map(word => <WordCard word = {word.theWord} key = {word.theWord} handleDelete = {handleDelete} feeling = {feeling} /> )
+    const inbetweenWordsList = inbetweenWords.map(word => <WordCard word = {word.theWord} id = {word.id} key = {word.id} handleDelete = {handleDelete} feeling = {feeling} /> )
 
     return (
         <>

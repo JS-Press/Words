@@ -3,7 +3,7 @@ import WordCard from './WordCard'
 
 function WordsIDontLike( { dislikedWords, handleDelete, feeling }){
 
-    const dislikedWordsList = dislikedWords.map(word => <WordCard word = {word.theWord} key = {word.theWord} handleDelete = {handleDelete} feeling = {feeling} /> )
+    const dislikedWordsList = dislikedWords.map(word => <WordCard id = {word.id} word = {word.theWord} key = {word.id} handleDelete = {handleDelete} feeling = {feeling} /> )
 
     return (
         <>

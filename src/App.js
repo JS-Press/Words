@@ -40,8 +40,12 @@ function App() {
     },[])
     
 // Deleting a word
-    function handleDelete(word, feeling){
-      // console.log(word,feeling)
+    function handleDelete(word, feeling, id){
+      console.log(id)
+
+      fetch(`http://localhost:3000/${feeling}/${id}`
+      , { method : 'DELETE' }).then(r => r.json()).then(d => console.log(d))
+
       const oldList = eval(`${feeling}Words`)
       const newList = oldList.filter(aWord => aWord.theWord !== word)
       console.log(newList)
@@ -59,8 +63,8 @@ function App() {
   function handleAddWord(feeling){
     
     // POST fetching server to add word
-    console.log(newWord, `added to ${ feeling }`)
-    console.log('posting', JSON.stringify({"theWord" : newWord}))
+    // console.log(newWord, `added to ${ feeling }`)
+    // console.log('posting', JSON.stringify({"theWord" : newWord}))
 
     fetch(`http://localhost:3000/${feeling}` 
     ,{ method:'POST',
@@ -70,7 +74,7 @@ function App() {
     )
     .then(r => r.json())
     .then(data => console.log(data))
-    .catch(er => console.log(`Nope BECAUSE:${er}`))
+    .catch(er => console.log(`Post failed BECAUSE:${er}`))
 
     //reseting input
     setNewWord('')
