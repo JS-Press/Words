@@ -32,7 +32,7 @@ function WordCard({ word, handleDelete, feeling, id }){
     return(
 
 <div id = "stack" >
-{word !== "pumpernickle" ? imgUrl !== 'init' && successful === true && imgUrl.images !== undefined ? <img src= {imgUrl.images.fixed_width.url} alt = {imgUrl.title} /> : <img src="https://media0.giphy.com/media/vnFB72LzHtO4o/giphy.gif?cid=ecf05e47a2z4xt6bkd4pihc7x12iedeitbhucqhnscrr56q4&rid=giphy.gif&ct=g" alt = 'oops nothing here' /> : null }
+{word !== "pumpernickle" ? imgUrl !== 'init' && successful === true && imgUrl.images !== undefined ? <img src= {imgUrl.images.fixed_height.url} alt = {imgUrl.title} /> : <img src="https://media0.giphy.com/media/vnFB72LzHtO4o/giphy.gif?cid=ecf05e47a2z4xt6bkd4pihc7x12iedeitbhucqhnscrr56q4&rid=giphy.gif&ct=g" alt = 'oops nothing here' /> : null }
 {word === "pumpernickle" ? <img src= "https://media.giphy.com/media/KeseIQWwb0q1G/200.gif" alt = {imgUrl.title} /> : null}
 <p id = "caption" >{word}</p>
 <p onClick={() => handleDelete(word, feeling, id)} id = "del" >❌</p>
