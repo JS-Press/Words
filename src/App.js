@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from "react"
-import {  Switch, Route, Redirect } from "react-router-dom";
+import {  Switch, Route } from "react-router-dom";
 import Navbar from "./Navbar"
 import NewWord from "./NewWord"
 import WordsILike from "./WordsILike"

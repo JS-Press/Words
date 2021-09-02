@@ -5,23 +5,24 @@ function Navbar(){
 
     return (
         <>
-        <br></br>
         <h1 className = 'nav' >words</h1>
+        <div id = 'nav'>
+        <br></br>
         <NavLink to="/like" className = 'nav' activeStyle={{
-            fontWeight: "bold", fontSize: "large",
-            color: "green"
+            fontWeight: "bold",
+            color: "mediumseagreen"
         }}> I like </NavLink>
         <NavLink to="/inbetween" className = 'nav' activeStyle={{
-            fontWeight: "bold", fontSize: "large",
+            fontWeight: "bold",
             color: "orange"
         }}> I'm inbetween about </NavLink>
         <NavLink to="/dislike"  className = 'nav' activeStyle={{
-            fontWeight: "bold", fontSize: "large",
-            color: "red"
+            fontWeight: "bold",
+            color: "tomato"
         }}> I don't like </NavLink>
         <br></br>
-
         
+        </div>
         </>
     )
 

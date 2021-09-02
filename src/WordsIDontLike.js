@@ -8,7 +8,9 @@ function WordsIDontLike( { dislikedWords, handleDelete, feeling }){
     return (
         <>
         {/* <h2>I Don't Like These Words:</h2> */}
+        <div className = "wordGrid" id = "dislikedWords" >
         {dislikedWordsList}
+        </div>
         <br></br>
         <br></br>
         <br></br>
