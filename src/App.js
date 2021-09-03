@@ -73,23 +73,25 @@ function App() {
     }
     )
     .then(r => r.json())
-    .then(data => console.log(data))
+    .then(data => {
+      const oldList = eval(`${feeling}Words`)
+      const newList = [...oldList, data]
+      switch(oldList){
+        case (likeWords): setLikedWords(newList);
+        break;
+        case (inbetweenWords): setInbetweenWords(newList);
+        break;
+        case (dislikeWords): setDislikedWords(newList);
+        break;
+      }
+    })
     .catch(er => console.log(`Post failed BECAUSE:${er}`))
 
     //reseting input
     setNewWord('')
 
     //updating rendered words
-    const oldList = eval(`${feeling}Words`)
-    const newList = [...oldList, {"theWord" : newWord}]
-    switch(oldList){
-      case (likeWords): setLikedWords(newList);
-      break;
-      case (inbetweenWords): setInbetweenWords(newList);
-      break;
-      case (dislikeWords): setDislikedWords(newList);
-      break;
-    }
+    
 
 
      
